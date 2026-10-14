@@ -1,0 +1,43 @@
+/**
+ * Evidentia Light Theme Base
+ * No dark mode permitted. 
+ */
+:root {
+  --bg: #F4F1EA;
+  --surface: #FBFAF6;
+  --surface-2: #EFEBE1;
+  --ink: #14130F;
+  --ink-muted: #6B675C;
+  --line: rgba(20, 19, 15, 0.14);
+  --line-strong: #14130F;
+
+  --amber-500: #F59E0B;
+
+  --radius: 4px;
+}
+
+body {
+  background-color: var(--bg);
+  background-image: 
+    linear-gradient(to right, rgba(20,19,15,.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20,19,15,.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  color: var(--ink);
+}
+
+/* Base noise overlay via pseudo-element */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber-500);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
